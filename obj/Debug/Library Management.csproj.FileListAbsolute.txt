@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\Library-Management\bin\Debug\Library Management.exe.config
+C:\Users\user\Desktop\Library-Management\bin\Debug\Library Management.exe
+C:\Users\user\Desktop\Library-Management\bin\Debug\Library Management.pdb
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.Form1.resources
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.Properties.Resources.resources
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.exe
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.pdb
