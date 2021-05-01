@@ -31,6 +31,7 @@ namespace Library_Management.View
                 if (!string.IsNullOrEmpty(name))
                 {
                     DatabaseHelper.name = name;
+                    this.Hide();
                     new Dashboard().Show();
                 }
                 else
@@ -59,6 +60,7 @@ namespace Library_Management.View
                     if (!string.IsNullOrEmpty(name))
                     {
                         DatabaseHelper.name = name;
+                        this.Hide();
                         new Dashboard().Show();
                     }
                     else
@@ -77,6 +79,12 @@ namespace Library_Management.View
                 lbl_login_masterPass.Visible = true;
                 btn_login_masterLogin.Text = "Submit";
             }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }

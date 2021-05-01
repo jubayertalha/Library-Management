@@ -15,6 +15,61 @@ namespace Library_Management.View
         public Dashboard()
         {
             InitializeComponent();
+            lbl_dashboard.Text = "Dashboard || " + DatabaseHelper.name;
+            if (!DatabaseHelper.name.Equals("Master"))
+            {
+                btn_admin_dashboard.Visible = false;
+            }
+            panel_dashboard.Height = btn_home_dashboardd.Height;
+            panel_dashboard.Top = btn_home_dashboardd.Top;
+            homeUC1.BringToFront();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            Application.Exit();
+        }
+
+        private void btn_close_dashboard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
+        }
+
+        private void btn_home_dashboardd_Click(object sender, EventArgs e)
+        {
+            panel_dashboard.Height = btn_home_dashboardd.Height;
+            panel_dashboard.Top = btn_home_dashboardd.Top;
+            homeUC1.BringToFront();
+        }
+
+        private void btn_book_dashboard_Click(object sender, EventArgs e)
+        {
+            panel_dashboard.Height = btn_book_dashboard.Height;
+            panel_dashboard.Top = btn_book_dashboard.Top;
+            bookUC1.BringToFront();
+        }
+
+        private void btn_user_dashboard_Click(object sender, EventArgs e)
+        {
+            panel_dashboard.Height = btn_user_dashboard.Height;
+            panel_dashboard.Top = btn_user_dashboard.Top;
+            userUC1.BringToFront();
+        }
+
+        private void btn_issue_dashboard_Click(object sender, EventArgs e)
+        {
+            panel_dashboard.Height = btn_issue_dashboard.Height;
+            panel_dashboard.Top = btn_issue_dashboard.Top;
+            issueUC1.BringToFront();
+        }
+
+        private void btn_admin_dashboard_Click(object sender, EventArgs e)
+        {
+            panel_dashboard.Height = btn_admin_dashboard.Height;
+            panel_dashboard.Top = btn_admin_dashboard.Top;
+            adminUC1.BringToFront();
         }
     }
 }
