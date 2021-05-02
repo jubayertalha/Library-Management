@@ -21,9 +21,9 @@ namespace Library_Management
             return string.Format(@"select * from users where user_name = '{0}' and password = '{1}' and type = '{2}'", user_name, password, type);
         }
 
-        public static string UserLoadQuery()
+        public static string UserLoadQuery(string type)
         {
-            return string.Format(@"select * from users");
+            return string.Format(@"select * from users where type = '{0}'", type);
         }
 
         public static string UserAddQuery(User user)

@@ -24,7 +24,7 @@ namespace Library_Management.View
         private void LoadUsers()
         {
             UserControls userControls = new UserControls();
-            gv_info_admin.DataSource = userControls.LoadUsers();
+            gv_info_admin.DataSource = userControls.LoadUsers("admin");
             tb_userName_admin.Text = "";
             tb_name_admin.Text = "";
             tb_phone_admin.Text = "";

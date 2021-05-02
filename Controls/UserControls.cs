@@ -21,10 +21,10 @@ namespace Library_Management.Controls
             this.user = user;
         }
 
-        public List<User> LoadUsers()
+        public List<User> LoadUsers(string type)
         {
             List<User> users = new List<User>();
-            string query = DatabaseHelper.UserLoadQuery();
+            string query = DatabaseHelper.UserLoadQuery(type);
             SqlConnection conn = DatabaseHelper.connectDB();
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -37,9 +37,9 @@ namespace Library_Management.Controls
                 string password = (string)reader.GetValue(reader.GetOrdinal("password"));
                 string location = (string)reader.GetValue(reader.GetOrdinal("location"));
                 string dob = (string)reader.GetValue(reader.GetOrdinal("dob"));
-                string type = (string)reader.GetValue(reader.GetOrdinal("type"));
+                string typee = (string)reader.GetValue(reader.GetOrdinal("type"));
 
-                user = new User(user_name, name, phone, location, dob, type, password);
+                user = new User(user_name, name, phone, location, dob, typee, password);
                 users.Add(user);
             }
             conn.Close();
