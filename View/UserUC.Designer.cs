@@ -46,9 +46,10 @@ namespace Library_Management.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.Controls.Add(this.button1);
             this.Name = "UserUC";
-            this.Size = new System.Drawing.Size(992, 568);
+            this.Size = new System.Drawing.Size(1022, 659);
             this.ResumeLayout(false);
 
         }

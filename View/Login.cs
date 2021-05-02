@@ -1,4 +1,4 @@
-﻿using Library_Management.Model;
+﻿using Library_Management.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +26,7 @@ namespace Library_Management.View
 
             if (!string.IsNullOrEmpty(user_name) && !string.IsNullOrEmpty(password))
             {
-                Users users = new Users();
+                UserControls users = new UserControls();
                 string name = users.AuthenticateUser(user_name, password, "admin");
                 if (!string.IsNullOrEmpty(name))
                 {
@@ -55,8 +55,8 @@ namespace Library_Management.View
 
                 if (!string.IsNullOrEmpty(password))
                 {
-                    Users users = new Users();
-                    string name = users.AuthenticateUser("master", password, "master");
+                    UserControls userControl = new UserControls();
+                    string name = userControl.AuthenticateUser("master", password, "master");
                     if (!string.IsNullOrEmpty(name))
                     {
                         DatabaseHelper.name = name;
