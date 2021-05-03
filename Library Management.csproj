@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\BookControls.cs" />
+    <Compile Include="Controls\IssueControls.cs" />
     <Compile Include="Controls\UserControls.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\Issue.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -131,8 +131,8 @@ namespace Library_Management.View
                 {
                     user = new User(user_name, name, phone, location, dob, "user", password);
                     userControls = new UserControls(user);
-                    bool isAdded = userControls.EditUser();
-                    if (isAdded)
+                    bool isEdited = userControls.EditUser();
+                    if (isEdited)
                     {
                         LoadUsers();
                         MessageBox.Show("User Edited.");

@@ -13,3 +13,4 @@ C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.View.Admin
 C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.View.BookUC.resources
 C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.View.IssueUC.resources
 C:\Users\user\Desktop\Library-Management\obj\Debug\Library_Management.View.UserUC.resources
+C:\Users\user\Desktop\Library-Management\obj\Debug\Library Management.csprojAssemblyReference.cache

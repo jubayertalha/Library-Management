@@ -29,6 +29,7 @@ namespace Library_Management.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_userName_login = new System.Windows.Forms.TextBox();
             this.tb_pass_login = new System.Windows.Forms.TextBox();
@@ -43,10 +44,11 @@ namespace Library_Management.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(340, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 31);
+            this.label1.Size = new System.Drawing.Size(93, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
@@ -71,6 +73,7 @@ namespace Library_Management.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(243, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 20);
@@ -81,6 +84,7 @@ namespace Library_Management.View
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(254, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 20);
@@ -120,6 +124,7 @@ namespace Library_Management.View
             // lbl_login_masterPass
             // 
             this.lbl_login_masterPass.AutoSize = true;
+            this.lbl_login_masterPass.ForeColor = System.Drawing.Color.White;
             this.lbl_login_masterPass.Location = new System.Drawing.Point(636, 358);
             this.lbl_login_masterPass.Name = "lbl_login_masterPass";
             this.lbl_login_masterPass.Size = new System.Drawing.Size(88, 13);
@@ -131,6 +136,7 @@ namespace Library_Management.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbl_login_masterPass);
             this.Controls.Add(this.tb_login_masterPass);
@@ -141,6 +147,7 @@ namespace Library_Management.View
             this.Controls.Add(this.tb_pass_login);
             this.Controls.Add(this.tb_userName_login);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);

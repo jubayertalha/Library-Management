@@ -28,7 +28,7 @@ namespace Library_Management
 
         public static string UserAddQuery(User user)
         {
-            return string.Format(@"insert into users values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", user.User_Name,user.Name,user.Phone,user.Password,user.Location,user.DOB,user.Type);
+            return string.Format(@"insert into users values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", user.User_Name, user.Name, user.Phone, user.Password, user.Location, user.DOB, user.Type);
         }
 
         public static string UserSearchQuery(string user_name, string type)
@@ -44,6 +44,54 @@ namespace Library_Management
         public static string UserEditQuery(User user)
         {
             return string.Format(@"update users set name = '{0}', phone = '{1}', password = '{2}', location = '{3}', dob = '{4}', type = '{5}' where user_name = '{6}'", user.Name, user.Phone, user.Password, user.Location, user.DOB, user.Type, user.User_Name);
+        }
+
+        public static string BookLoadQuery(string category)
+        {
+            if (category.Equals("All"))
+            {
+                return string.Format(@"select * from books");
+            }
+            else
+            {
+                return string.Format(@"select * from books where category = '{0}'", category);
+            }
+            
+        }
+
+        public static string BookAddQuery(Book book)
+        {
+            return string.Format(@"insert into books values('{0}','{1}','{2}', {3})", book.Name, book.Author, book.Category, book.Stock);
+        }
+
+        public static string BookSearchQuery(int id)
+        {
+            return string.Format(@"select * from books where id = {0}", id);
+        }
+
+        public static string BookDeleteQuery(int id)
+        {
+            return string.Format(@"delete from books where id = {0}", id);
+        }
+
+        public static string BookEditQuery(Book book)
+        {
+            return string.Format(@"update books set name = '{0}', author = '{1}', category = '{2}', stock = {3} where id = {4}", book.Name, book.Author, book.Category, book.Stock, book.Id);
+        }
+
+        public static string IssueLoadByStatusQuery(string status)
+        {
+            return string.Format(@"select * from issues where status = '{0}'", status);
+        }
+
+        public static string IssueLoadByUserQuery(string user_name)
+        {
+            return string.Format(@"select * from issues where user_name = '{0}'", user_name);
+        }
+
+        public static string IssueAddQuery(Issue issue)
+        {
+            return string.Format(@"insert into issues values('{0}',{1},'{2}','{3}','{4}','{5}')", issue.UserName, issue.BookId, issue.Status, issue.IssueDate, issue.TobeRetunDate, issue.ReturnDate);
         }
     }
 }

@@ -42,6 +42,7 @@ namespace Library_Management.View
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_close_dashboard = new System.Windows.Forms.Button();
             this.lbl_dashboard = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminUC1 = new Library_Management.View.AdminUC();
             this.issueUC1 = new Library_Management.View.IssueUC();
             this.userUC1 = new Library_Management.View.UserUC();
@@ -49,6 +50,7 @@ namespace Library_Management.View
             this.homeUC1 = new Library_Management.View.HomeUC();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,6 +190,7 @@ namespace Library_Management.View
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btn_close_dashboard);
             this.panel2.Controls.Add(this.lbl_dashboard);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -220,11 +223,21 @@ namespace Library_Management.View
             this.lbl_dashboard.AutoSize = true;
             this.lbl_dashboard.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_dashboard.ForeColor = System.Drawing.Color.White;
-            this.lbl_dashboard.Location = new System.Drawing.Point(6, 11);
+            this.lbl_dashboard.Location = new System.Drawing.Point(31, 12);
             this.lbl_dashboard.Name = "lbl_dashboard";
             this.lbl_dashboard.Size = new System.Drawing.Size(89, 20);
             this.lbl_dashboard.TabIndex = 2;
             this.lbl_dashboard.Text = "Dashboard";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 31);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // adminUC1
             // 
@@ -279,14 +292,17 @@ namespace Library_Management.View
             this.Controls.Add(this.homeUC1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1200, 700);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Dashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +326,6 @@ namespace Library_Management.View
         private UserUC userUC1;
         private IssueUC issueUC1;
         private AdminUC adminUC1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
