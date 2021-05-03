@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library_Management.Controls;
+using Library_Management.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +17,45 @@ namespace Library_Management.View
         public HomeUC()
         {
             InitializeComponent();
+            lbl_admin_home.Text = getAllAdmins().ToString();
+            lbl_books_home.Text = getAllBooks().ToString();
+            lbl_users_home.Text = getAllUsers().ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private int getAllUsers()
         {
-            MessageBox.Show("Home");
+            UserControls userControls = new UserControls();
+            List<User> users = userControls.LoadUsers("user");
+            int count = 0;
+            foreach(User u in users)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        private int getAllAdmins()
+        {
+            UserControls userControls = new UserControls();
+            List<User> users = userControls.LoadUsers("admin");
+            int count = 0;
+            foreach (User u in users)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        private int getAllBooks()
+        {
+            BookControls bookControls = new BookControls();
+            List<Book> books = bookControls.LoadBooks("All");
+            int count = 0;
+            foreach (Book b in books)
+            {
+                count++;
+            }
+            return count;
         }
     }
 }
