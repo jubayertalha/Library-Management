@@ -301,6 +301,7 @@ namespace Library_Management.View
             this.gv_info_issue.Name = "gv_info_issue";
             this.gv_info_issue.Size = new System.Drawing.Size(490, 422);
             this.gv_info_issue.TabIndex = 1;
+            this.gv_info_issue.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_info_issue_CellDoubleClick);
             // 
             // gb_info_issue
             // 

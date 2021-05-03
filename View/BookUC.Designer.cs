@@ -196,7 +196,7 @@ namespace Library_Management.View
             // 
             // gv_info_book
             // 
-            this.gv_info_book.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv_info_book.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.gv_info_book.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.gv_info_book.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gv_info_book.Location = new System.Drawing.Point(23, 31);

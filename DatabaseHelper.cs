@@ -10,7 +10,7 @@ namespace Library_Management
 {
     class DatabaseHelper
     {
-        public static string name = "Master";
+        public static string name = "";
         public static SqlConnection connectDB()
         {
             return new SqlConnection(@"Server=DESKTOP-BJDQM5C; Database=library; Integrated Security=true;");
@@ -92,6 +92,21 @@ namespace Library_Management
         public static string IssueAddQuery(Issue issue)
         {
             return string.Format(@"insert into issues values('{0}',{1},'{2}','{3}','{4}','{5}')", issue.UserName, issue.BookId, issue.Status, issue.IssueDate, issue.TobeRetunDate, issue.ReturnDate);
+        }
+
+        public static string IssueSearchQuery(int id)
+        {
+            return string.Format(@"select * from issues where id = {0}", id);
+        }
+
+        public static string IssueEditQuery(Issue issue)
+        {
+            return string.Format(@"update issues set user_name = '{0}', book_id = {1}, status = '{2}', issue_date = '{3}', tobe_return_date = '{4}', return_date = '{5}' where id = {6}", issue.UserName, issue.BookId, issue.Status, issue.IssueDate, issue.TobeRetunDate, issue.ReturnDate, issue.Id);
+        }
+
+        public static string IssueDeleteQuery(int id)
+        {
+            return string.Format(@"delete from issues where id = {0}", id);
         }
     }
 }

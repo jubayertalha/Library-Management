@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,9 +65,67 @@ namespace Library_Management.View
             gv_info_issue.DataSource = issueControls.LoadIssuesByUser(user_name);
         }
 
+        public void SearchIssue(int id)
+        {
+            IssueControls issueControls = new IssueControls();
+            Issue issue = issueControls.SearchIssue(id);
+            if (issue != null)
+            {
+                string user_name = issue.UserName;
+                int book_id = issue.BookId;
+                UserControls userControls = new UserControls();
+                User user = userControls.SearchUser(user_name, "user");
+                BookControls bookControls = new BookControls();
+                Book book = bookControls.SearchBook(book_id);
+                if (user != null && book != null)
+                {
+                    tb_issue_id_issue.Text = issue.Id.ToString().Trim();
+                    tb_user_name_issue.Text = issue.UserName.Trim();
+                    tb_book_id_issue.Text = issue.BookId.ToString().Trim();
+                    cb_status_issue.SelectedIndex = cb_status_issue.FindStringExact(issue.Status.Trim());
+                    dtp_issue_date_issue.Value = DateTime.ParseExact(issue.IssueDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    dtp_tobe_return_issue.Value = DateTime.ParseExact(issue.TobeRetunDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    if (issue.ReturnDate.Equals("nill"))
+                    {
+                        dtp_return_date_issue.Value = DateTime.Now;
+                    }
+                    else
+                    {
+                        dtp_return_date_issue.Value = DateTime.ParseExact(issue.ReturnDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    }
+                    EnableViews();
+                    cb_search_issue.SelectedIndex = cb_search_issue.FindStringExact("User");
+                    gv_info_issue.DataSource = issueControls.LoadIssuesByUser(user_name);
+                }
+                else
+                {
+                    MessageBox.Show("User or Book Doesn't Exist.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Issue Doesn't Exist.");
+            }
+        }
+
         private void btn_search_issue_Click(object sender, EventArgs e)
         {
+            string sid = tb_search_issue.Text.Trim();
+            if (isValidString(sid))
+            {
+                int id = int.Parse(sid);
+                SearchIssue(id);
+            }
+            else
+            {
+                MessageBox.Show("Enter Issue Id.");
+            }
+        }
 
+        private void gv_info_issue_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = int.Parse(gv_info_issue.Rows[e.RowIndex].Cells[0].Value.ToString().Trim());
+            SearchIssue(id);
         }
 
         private void btn_user_name_enter_issue_Click(object sender, EventArgs e)
@@ -193,12 +252,55 @@ namespace Library_Management.View
 
         private void btn_edit_issue_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(tb_issue_id_issue.Text.Trim());
+            string user_name = tb_user_name_issue.Text.Trim();
+            int book_id = int.Parse(tb_book_id_issue.Text.Trim());
+            string status = cb_status_issue.SelectedItem.ToString().Trim();
+            string issue_date = dtp_issue_date_issue.Value.ToString("dd/MM/yyyy").Trim();
+            string tobe_return_date = dtp_tobe_return_issue.Value.ToString("dd/MM/yyyy").Trim();
+            string return_date;
+            if (status.Equals("Returned"))
+            {
+                return_date = dtp_tobe_return_issue.Value.ToString("dd/MM/yyyy").Trim();
+            }
+            else
+            {
+                return_date = "nill";
 
+            }
+            Issue issue = new Issue(id, user_name, book_id, status, issue_date, tobe_return_date, return_date);
+            IssueControls issueControls = new IssueControls(issue);
+            bool isEdited = issueControls.EditIssue();
+            if (isEdited)
+            {
+                DisableViews();
+                cb_search_issue.SelectedIndex = cb_search_issue.FindStringExact("User");
+                gv_info_issue.DataSource = issueControls.LoadIssuesByUser(user_name);
+                MessageBox.Show("Issue Edited.");
+            }
+            else
+            {
+                MessageBox.Show("Issue can not be Edited.");
+            }
         }
 
         private void btn_delete_issue_Click(object sender, EventArgs e)
         {
-
+            string user_name = tb_user_name_issue.Text.Trim();
+            int id = int.Parse(tb_issue_id_issue.Text.Trim());
+            IssueControls issueControls = new IssueControls();
+            bool isDeleted = issueControls.DeleteIssue(id);
+            if (isDeleted)
+            {
+                DisableViews();
+                cb_search_issue.SelectedIndex = cb_search_issue.FindStringExact("User");
+                gv_info_issue.DataSource = issueControls.LoadIssuesByUser(user_name);
+                MessageBox.Show("Issue Deleted.");
+            }
+            else
+            {
+                MessageBox.Show("Issue can not be Deleted.");
+            }
         }
 
         private void btn_clear_issue_Click(object sender, EventArgs e)
@@ -208,6 +310,7 @@ namespace Library_Management.View
 
         private void DisableViews()
         {
+            tb_issue_id_issue.Text = "";
             cb_search_issue.Enabled = true;
             tb_user_name_issue.Enabled = true;
             btn_user_name_enter_issue.Enabled = true;
